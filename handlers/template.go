@@ -1,4 +1,4 @@
-package templatehandler
+package handlers
 
 import (
   "net/http"
