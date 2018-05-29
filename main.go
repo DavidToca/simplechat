@@ -36,10 +36,9 @@ func render(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-  handler := templateHandler{filename: "chat.html"}
-  handler.HandleFunc("/", handler.ServeHTTP)
+  handler := &templateHandler{filename: "chat.html"}
+  http.Handle("/", handler)
   // start web server
-
   if err := http.ListenAndServe(":8000", nil); err != nil{
     log.Fatal("ListenAndServe:", err)
   }
